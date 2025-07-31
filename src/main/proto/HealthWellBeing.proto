@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "generated.healthwellbeing";
+option java_outer_classname = "HealthWellBeingServiceImpl";
+
+package HealthWellBeing; 
+
+service HealthWellBeing {
+rpc MonitorTheBody(BodyScanner) returns (stream Results) {}
+rpc AdviceNewBorn(stream Requests) returns (stream Advices) {}
+
+}
+
+message BodyScanner {
+string bodyscanner = 1;
+}
+message Results{
+string resultmessages = 1;
+
+}
+
+
+message Requests{
+string newborncare = 1;
+string vaccine= 2;
+string treatments = 3;
+}
+message Advices{
+string newborncare = 1;
+string vaccine= 2;
+string treatments = 3;
+}
