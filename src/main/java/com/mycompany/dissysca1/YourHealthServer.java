@@ -59,21 +59,11 @@ public class YourHealthServer extends YourHealthImplBase{
     public StreamObserver<ListOfMedicalTest> MedicalAdvice(StreamObserver<AvailableAppointmentDate> responseObserver) {
     return new StreamObserver<ListOfMedicalTest>() {
         
-        
-        
-        
+
         @Override
         public void onNext(ListOfMedicalTest req) {
             System.out.println(LocalTime.now().toString()+ ": received messages: "+ req.getAids()+ req.getTuberculosis()+ req.getMalaria() + req.getWaterBoneDisease());
-            String bookedDate; 
-            bookedDate = LocalTime.now().plusHours(new Random().nextInt(10)+1).toString();
-            AvailableAppointmentDate reply = AvailableAppointmentDate.newBuilder().setBookedDate(bookedDate).build();    
-       
-
-				System.out.println("Server booked date: "+ bookedDate);
-            
-            responseObserver.onNext(reply);
-            responseObserver.onCompleted();   
+              
         }
 
         @Override
@@ -83,8 +73,17 @@ public class YourHealthServer extends YourHealthImplBase{
 
         @Override
         public void onCompleted() {
+            System.out.printf(LocalTime.now().toString() + ": Message stream complete \n");
+            String date; 
+            date = LocalTime.now().plusHours(new Random().nextInt(10)+1).toString();
+            AvailableAppointmentDate reply = AvailableAppointmentDate.newBuilder().setBookedDate(date).build();    
+       
+
+				System.out.println("Server booked date: "+ date);
             
-         System.out.printf(LocalTime.now().toString() + ": Message stream complete \n");
+            responseObserver.onNext(reply);
+            responseObserver.onCompleted(); 
+  
         }
     };
     }
