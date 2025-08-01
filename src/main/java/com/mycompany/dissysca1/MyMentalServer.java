@@ -33,7 +33,7 @@ public class MyMentalServer extends MyMentalImplBase{
        Logger.getLogger("io.grpc.netty").setLevel(Level.SEVERE);
        Logger.getLogger("io.grpc.netty.shaded").setLevel(Level.SEVERE);
        Logger.getLogger("javax.jmdns").setLevel(Level.SEVERE);
-        int port = 50051;
+        int port = 50052;
        logger.setLevel(Level.SEVERE);
         try {
             Server server = ServerBuilder.forPort(port)

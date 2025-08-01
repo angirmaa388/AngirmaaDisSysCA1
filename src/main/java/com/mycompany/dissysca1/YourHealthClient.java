@@ -43,9 +43,9 @@ public class YourHealthClient {
         Logger.getLogger("javax.jmdns").setLevel(Level.SEVERE);
         
         
-//        jmdns = JmDNS.create(InetAddress.getLocalHost());
-        InetAddress addr = InetAddress.getByName("10.3.228.23");
+        InetAddress addr = InetAddress.getByName("10.3.228.50");
         jmdns = JmDNS.create(addr);
+        //        jmdns = JmDNS.create(InetAddress.getLocalHost());
         
         String serviceType = "_grpc._tcp.local.";
         jmdns.addServiceListener(serviceType, new ServiceListener() {
@@ -74,16 +74,15 @@ public class YourHealthClient {
                 int discoveredPort = serviceInfo.getPort();
                 String serviceName = serviceInfo.getName();
                 try{
-                    if (serviceName.equals("YourHealth")){
+                    if (serviceName.equals("YourHealthServer")){
                         useYourHealthService(discoveredPort, discoveredHost );
                     }
                 }catch (InterruptedException ex){
                     Logger.getLogger(YourHealthClient.class.getName()).log(Level.SEVERE, null, ex);
             }catch (IOException ex) {
                     Logger.getLogger(YourHealthClient.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            
-   }
+                }    
+            }
         });
 
         System.out.println("#######Listening for gRPC services via JmDNS...");
@@ -96,7 +95,6 @@ public class YourHealthClient {
                 .usePlaintext()
                 .build();
         
-    
     StreamObserver<AvailableAppointmentDate> responseObserver = new StreamObserver<AvailableAppointmentDate>() {
          @Override
          public void onNext(AvailableAppointmentDate response) {
@@ -111,41 +109,47 @@ public class YourHealthClient {
          @Override
          public void onCompleted() {
              System.out.println(LocalTime.now().toString() + ": stream is completed.");
-			}
+             
+            }
 	};
     
-   
+  
                             asyncStub = YourHealthGrpc.newStub(channel);
-                            syncStub = YourHealthGrpc.newBlockingStub(channel);
+                           
         
 	StreamObserver<ListOfMedicalTest> requestObserver = asyncStub.medicalAdvice(responseObserver);
- 
+
     try {
                     requestObserver.onNext(ListOfMedicalTest.newBuilder().setAids("Aids").build());
+                    System.out.println("client called server with Aids");
                         Thread.sleep(500);
                     requestObserver.onNext(ListOfMedicalTest.newBuilder().setTuberculosis("Tuberculosis").build());
+                    System.out.println("client called server with Tuberculosis");
 			Thread.sleep(500);
                     requestObserver.onNext(ListOfMedicalTest.newBuilder().setMalaria("Malaria").build());
-			Thread.sleep(500);
+                    System.out.println("client called server with Malaria");
+                        Thread.sleep(500);
                     requestObserver.onNext(ListOfMedicalTest.newBuilder().setWaterBoneDisease("WaterBoneDisease").build());
+                    System.out.println("client called server with WaterBoneDisease");   
                         Thread.sleep(500);
                         
                     requestObserver.onCompleted();
                         Thread.sleep(10000);
                         
-    } catch (RuntimeException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {			
-			e.printStackTrace();
-		}finally {
+            } catch (RuntimeException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        finally {
             //shutdown channel
             channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
             jmdns.close();
-    
-            }
+        }
+        
+        
     }
 }
-
 
     
     

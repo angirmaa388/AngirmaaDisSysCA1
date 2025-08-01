@@ -74,10 +74,10 @@ public class HealthWellBeingClient {
                     Logger.getLogger(HealthWellBeingClient.class.getName()).log(Level.SEVERE, null, ex);
             }catch (IOException ex) {
                     Logger.getLogger(HealthWellBeingClient.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            
-   }
+                }      
+             }
         });
+        
         System.out.println("#######Listening for gRPC services via JmDNS...");
 //        Thread.sleep(30000);
         
