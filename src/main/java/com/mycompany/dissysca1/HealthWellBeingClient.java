@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import io.grpc.stub.StreamObserver;
 import java.net.UnknownHostException;
+import java.time.LocalTime;
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceInfo;
@@ -37,7 +38,7 @@ public class HealthWellBeingClient {
         Logger.getLogger("io.grpc.netty.shaded").setLevel(Level.SEVERE);
         Logger.getLogger("javax.jmdns").setLevel(Level.SEVERE);
         
-        InetAddress addr = InetAddress.getByName("10.3.228.23");
+        InetAddress addr = InetAddress.getByName("10.3.228.50");
         jmdns = JmDNS.create(addr);
 //        jmdns = JmDNS.create(InetAddress.getLocalHost());
         
@@ -121,11 +122,55 @@ public class HealthWellBeingClient {
         }catch (StatusRuntimeException e) {
             logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
              
-        } finally {
+        } 
+///
+        ///
+      StreamObserver<Advices> responseObserver = new StreamObserver<Advices>() {
+
+            @Override
+            
+            public void onNext(Advices response) {
+                System.out.println(LocalTime.now().toString() + ": response from server " + response.getNewborncare()+ response.getVaccine()+ response.getTreatments() );
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                t.printStackTrace();
+            }
+
+            @Override
+            public void onCompleted() {
+                System.out.println(LocalTime.now().toString() + ": stream is completed.");
+            }
+
+        };
+        
+        
+        StreamObserver<Requests> requestObserver = asyncStub.adviceNewBorn(responseObserver);
+        try {
+            requestObserver.onNext(Requests.newBuilder().setNewborncare("new born care").build());
+            System.out.println("client called server with new born care");
+            Thread.sleep(500);
+            requestObserver.onNext(Requests.newBuilder().setVaccine("new born vaccine").build());
+            System.out.println("client called server with new born vaccine");
+            Thread.sleep(500);
+             requestObserver.onNext(Requests.newBuilder().setTreatments("new born treatments").build());
+            System.out.println("client called server with new born treatment");
+            Thread.sleep(500);
+            requestObserver.onCompleted();
+            Thread.sleep(10000);
+            
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        finally {
             //shutdown channel
             channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
             jmdns.close();
         }
+        
+        
     }
-     
 }

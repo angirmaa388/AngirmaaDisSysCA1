@@ -10,14 +10,17 @@ package com.mycompany.dissysca1;
  */
 
 
+import generated.healthwellbeing.Advices;
 import generated.healthwellbeing.HealthWellBeingGrpc.HealthWellBeingImplBase;
 import java.io.IOException;
 import java.util.logging.Logger;
 import  generated.healthwellbeing.Results;
 import generated.healthwellbeing.BodyScanner;
+import generated.healthwellbeing.Requests;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import java.time.LocalTime;
 import java.util.logging.Level;
 
 public class HealthWellBeingServer extends HealthWellBeingImplBase {
@@ -67,4 +70,29 @@ public class HealthWellBeingServer extends HealthWellBeingImplBase {
         responseObserver.onNext(reply3);
         responseObserver.onCompleted();
     } 
+     public StreamObserver<Requests> adviceNewBorn(StreamObserver<Advices> responseObserver) {
+    return new StreamObserver<Requests>() {
+        @Override
+        public void onNext(Requests req) {
+            System.out.println("received messages:");
+            Advices adviceReply1 = Advices.newBuilder().setNewborncare(" fed the new born every 2–3 hours, and always place the baby on their back when baby sleep." + req.getNewborncare()).build();
+            Advices adviceReply2 = Advices.newBuilder().setVaccine(" 1. Hepatitis B, 2. BCG (Bacillus Calmette–Guérin)" + req.getVaccine()).build();
+            Advices adviceReply3 = Advices.newBuilder().setTreatments(" 1. Vitamin K Injection, 2. Eye Ointment, 3.Phototherapy (optional)" + req.getTreatments()).build();
+            
+            
+          responseObserver.onNext(adviceReply1); 
+          responseObserver.onNext(adviceReply2);
+          responseObserver.onNext(adviceReply3);
+        }
+
+        @Override
+        public void onError(Throwable thrwbl) {
+        }
+
+        @Override
+        public void onCompleted() {
+            System.out.printf(LocalTime.now().toString() + ": Message stream complete \n");
+        }
+    };
+    }
 }
