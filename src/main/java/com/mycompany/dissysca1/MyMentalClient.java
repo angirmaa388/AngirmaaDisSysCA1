@@ -38,7 +38,7 @@ public class MyMentalClient {
         Logger.getLogger("javax.jmdns").setLevel(Level.SEVERE);
         
 //        jmdns = JmDNS.create(InetAddress.getLocalHost());
-        InetAddress addr = InetAddress.getByName("10.3.228.50");
+        InetAddress addr = InetAddress.getByName("192.168.0.30");
         jmdns = JmDNS.create(addr);
         
         String serviceType = "_grpc._tcp.local.";

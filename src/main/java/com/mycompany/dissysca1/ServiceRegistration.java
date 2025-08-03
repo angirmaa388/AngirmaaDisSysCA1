@@ -22,7 +22,7 @@ public class ServiceRegistration {
   
   
   private ServiceRegistration() throws UnknownHostException, IOException {
-        InetAddress addr = InetAddress.getByName("10.3.228.50");
+        InetAddress addr = InetAddress.getByName("192.168.0.30");
         jmdns = JmDNS.create(addr);
 //        jmdns = JmDNS.create(InetAddress.getLocalHost());
         System.out.println("Register: InetAddress.getLocalHost():" + InetAddress.getLocalHost());

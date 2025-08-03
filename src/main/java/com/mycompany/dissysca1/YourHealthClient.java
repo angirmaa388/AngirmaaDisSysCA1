@@ -29,7 +29,8 @@ import javax.jmdns.ServiceListener;
 
 public class YourHealthClient {
     private static  YourHealthStub asyncStub;
-     private static  YourHealthBlockingStub syncStub;
+    private static YourHealthBlockingStub syncStub;
+     
     private static final Logger logger = Logger.getLogger(YourHealthClient.class.getName());
     
     static JmDNS jmdns;
@@ -43,7 +44,7 @@ public class YourHealthClient {
         Logger.getLogger("javax.jmdns").setLevel(Level.SEVERE);
         
         
-        InetAddress addr = InetAddress.getByName("10.3.228.50");
+        InetAddress addr = InetAddress.getByName("192.168.0.30");
         jmdns = JmDNS.create(addr);
         //        jmdns = JmDNS.create(InetAddress.getLocalHost());
         
@@ -74,7 +75,7 @@ public class YourHealthClient {
                 int discoveredPort = serviceInfo.getPort();
                 String serviceName = serviceInfo.getName();
                 try{
-                    if (serviceName.equals("YourHealthServer")){
+                    if (serviceName.equals("YourHealthServer")){      
                         useYourHealthService(discoveredPort, discoveredHost );
                     }
                 }catch (InterruptedException ex){
@@ -89,16 +90,20 @@ public class YourHealthClient {
       //  Thread.sleep(30000);
        
     }
+    
     private static void useYourHealthService(int inPort, String inHost) throws InterruptedException, IOException {
         ManagedChannel channel = ManagedChannelBuilder.
                 forAddress(inHost, inPort)
                 .usePlaintext()
                 .build();
+        asyncStub = YourHealthGrpc.newStub(channel);
+        syncStub = YourHealthGrpc.newBlockingStub(channel);
+
         
     StreamObserver<AvailableAppointmentDate> responseObserver = new StreamObserver<AvailableAppointmentDate>() {
          @Override
          public void onNext(AvailableAppointmentDate response) {
-         System.out.println(LocalTime.now().toString() + ": response from server " + response.getBookedDate());
+         System.out.println(LocalTime.now().toString() + ": ####response from server " + response.getBookedDate());
         }
 
          @Override
@@ -114,12 +119,14 @@ public class YourHealthClient {
 	};
     
   
-                            asyncStub = YourHealthGrpc.newStub(channel);
+//                            asyncStub = YourHealthGrpc.newStub(channel);
+                            
                            
-        
 	StreamObserver<ListOfMedicalTest> requestObserver = asyncStub.medicalAdvice(responseObserver);
-
+        
+	
     try {
+        
                     requestObserver.onNext(ListOfMedicalTest.newBuilder().setAids("Aids").build());
                     System.out.println("client called server with Aids");
                         Thread.sleep(500);

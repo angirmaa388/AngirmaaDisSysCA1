@@ -17,7 +17,9 @@ import generated.yourhealth.ListOfMedicalTest;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 
@@ -57,12 +59,18 @@ public class YourHealthServer extends YourHealthImplBase{
         
     }
     public StreamObserver<ListOfMedicalTest> MedicalAdvice(StreamObserver<AvailableAppointmentDate> responseObserver) {
-    return new StreamObserver<ListOfMedicalTest>() {
-        
-
+    
+        return new StreamObserver<ListOfMedicalTest>() {
+        ArrayList<String> list = new ArrayList<>();
+            
+                    
         @Override
         public void onNext(ListOfMedicalTest req) {
             System.out.println(LocalTime.now().toString()+ ": received messages: "+ req.getAids()+ req.getTuberculosis()+ req.getMalaria() + req.getWaterBoneDisease());
+              list.add(req.getAids());
+              list.add(req.getTuberculosis());
+              list.add(req.getMalaria());
+              list.add(req.getWaterBoneDisease());
               
         }
 
@@ -74,12 +82,12 @@ public class YourHealthServer extends YourHealthImplBase{
         @Override
         public void onCompleted() {
             System.out.printf(LocalTime.now().toString() + ": Message stream complete \n");
-            String date; 
-            date = LocalTime.now().plusHours(new Random().nextInt(10)+1).toString();
-            AvailableAppointmentDate reply = AvailableAppointmentDate.newBuilder().setBookedDate(date).build();    
-       
+            String idate; 
+            idate = LocalDate.now().plusDays(new Random().nextInt(10)+1).toString();
+            AvailableAppointmentDate reply = AvailableAppointmentDate.newBuilder().setBookedDate(idate).build();    
+            
 
-				System.out.println("Server booked date: "+ date);
+				System.out.println("Server booked date: "+ idate);
             
             responseObserver.onNext(reply);
             responseObserver.onCompleted(); 

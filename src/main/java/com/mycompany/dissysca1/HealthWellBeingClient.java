@@ -38,7 +38,7 @@ public class HealthWellBeingClient {
         Logger.getLogger("io.grpc.netty.shaded").setLevel(Level.SEVERE);
         Logger.getLogger("javax.jmdns").setLevel(Level.SEVERE);
         
-        InetAddress addr = InetAddress.getByName("10.3.228.50");
+        InetAddress addr = InetAddress.getByName("192.168.0.30");
         jmdns = JmDNS.create(addr);
 //        jmdns = JmDNS.create(InetAddress.getLocalHost());
         
