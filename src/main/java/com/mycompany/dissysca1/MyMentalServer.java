@@ -63,7 +63,8 @@ public class MyMentalServer extends MyMentalImplBase{
 
         System.out.println("receiving issue request");
 
-        Advice reply = Advice.newBuilder().setAdvice("Advice  " + request.getMentalIssue()).build();
+        Advice reply = Advice.newBuilder().setAdvice("Advice  " + request.getMentalIssue()+ ". We will contact you to Dr. Anna Lembke. She will give more further advice").build();
+
 
         responseObserver.onNext(reply);
 
