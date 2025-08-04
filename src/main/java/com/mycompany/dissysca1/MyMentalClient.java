@@ -27,9 +27,9 @@ import javax.jmdns.ServiceListener;
 
 public class MyMentalClient {
     private static final Logger logger = Logger.getLogger(MyMentalClient.class.getName());
-    
+     /*here I declared logger*/
     static JmDNS jmdns;
-    
+    /*using JmDNS, started looking for gRPC*/
 
     public static void main(String[] args) throws Exception {
         logger.setLevel(Level.SEVERE);
@@ -39,7 +39,9 @@ public class MyMentalClient {
         
 //        jmdns = JmDNS.create(InetAddress.getLocalHost());
         InetAddress addr = InetAddress.getByName("192.168.0.30");
-        jmdns = JmDNS.create(addr);
+        //note: here I used wifi IP adress as I'm using MAC 
+        jmdns = JmDNS.create(addr); /*JmDNS using ip adress finds it */
+        //        jmdns = JmDNS.create(InetAddress.getLocalHost());
         
         String serviceType = "_grpc._tcp.local.";
         jmdns.addServiceListener(serviceType, new ServiceListener() {
@@ -47,8 +49,11 @@ public class MyMentalClient {
             @Override
             public void serviceAdded(ServiceEvent event) {
                 System.out.println("[+] Service added: " + event.getName());
-                // This triggers serviceResolved if we explicitly request resolution
-                jmdns.requestServiceInfo(event.getType(), event.getName(), 1); // resolve ASAP
+                
+                /*here it's adding ther service when it's finds*/
+                jmdns.requestServiceInfo(event.getType(), event.getName(), 1); 
+                // resolve ASAP
+                /*if the service lost, it will show*/
             }
 
             @Override
@@ -62,22 +67,23 @@ public class MyMentalClient {
                 System.out.println("##### Service resolved: " + serviceInfo.getName());
                 System.out.println("    Address: " + serviceInfo.getHostAddresses()[0]);
                 System.out.println("    Port: " + serviceInfo.getPort());
+                /*get the port number and host name from the ServiceInfo object and prints them*/ 
                 
-                // get the port number and host name from the ServiceInfo object
                 String discoveredHost = serviceInfo.getHostAddresses()[0];
                 int discoveredPort = serviceInfo.getPort();
                 String serviceName = serviceInfo.getName();
                 try {
-                    // now that the service is resolved we can use it
-                    // check that it is the specific service we want
+                    
                     if (serviceName.equals("MyMental")) {
                         useMyMentalService(discoveredPort, discoveredHost );
+                        /*here it will catch MyMental and use it */
+                        /*and ignores the other servers*/
                     }
                 } catch (InterruptedException ex) {
                     Logger.getLogger(MyMentalClient.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
                     Logger.getLogger(MyMentalClient.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                }/*if there is any sudden interrupt, it will print it*/
                 
             }
         });
@@ -88,18 +94,20 @@ public class MyMentalClient {
     }
         
     private static void useMyMentalService(int inPort, String inHost) throws InterruptedException, IOException {
+         /*it will connect the host and port to the gRPC*/
         ManagedChannel channel = ManagedChannelBuilder.
                 forAddress(inHost, inPort)
                 .usePlaintext()
                 .build();
         MyMentalBlockingStub blockingStub = MyMentalGrpc.newBlockingStub(channel);
+        /*Here I declaring new blocking stub*/
         try {
             String issue = "Feeling unsercure in social platforms";
             MentalIssue request = MentalIssue.newBuilder().setMentalIssue(issue).build();
-
+            /*cient sends only one request*/
             Advice response = blockingStub.mentalAdvice(request);
             System.out.println("#######Giving Advice: " + response.getAdvice());
-            
+            /*here there will be only one response*/
             
         } catch (StatusRuntimeException e) {
             logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
@@ -108,6 +116,7 @@ public class MyMentalClient {
             //shutdown channel
             channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
             jmdns.close();
+            /*it shows stream is complited*/
         }
          
     }

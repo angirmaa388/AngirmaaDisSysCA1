@@ -79,12 +79,13 @@ public class YourHealthClient {
                     if (serviceName.equals("YourHealthServer")){      
                         useYourHealthService(discoveredPort, discoveredHost );
                         /*here it will catch YourHealthServer and use it */
+                        /*and ignores the other servers*/
                     }
                 }catch (InterruptedException ex){
                     Logger.getLogger(YourHealthClient.class.getName()).log(Level.SEVERE, null, ex);
             }catch (IOException ex) {
                     Logger.getLogger(YourHealthClient.class.getName()).log(Level.SEVERE, null, ex);
-                }    
+                }    /*if there is any sudden interrupt, it will print it*/
             }
         });
 
@@ -94,7 +95,7 @@ public class YourHealthClient {
     }
     
     private static void useYourHealthService(int inPort, String inHost) throws InterruptedException, IOException {
-        /*it will connect the host and port then calss the gRPC*/
+        /*it will connect the host and port to the gRPC*/
         ManagedChannel channel = ManagedChannelBuilder.
                 forAddress(inHost, inPort)
                 .usePlaintext()
@@ -133,15 +134,19 @@ public class YourHealthClient {
         
                     requestObserver.onNext(ListOfMedicalTest.newBuilder().setAids("Aids").build());
                     System.out.println("client called server with Aids");
+                    /*shows the client called server with Aids*/
                         Thread.sleep(500);
                     requestObserver.onNext(ListOfMedicalTest.newBuilder().setTuberculosis("Tuberculosis").build());
                     System.out.println("client called server with Tuberculosis");
+                    /*shows the client called server with Tuberculosis*/
 			Thread.sleep(500);
                     requestObserver.onNext(ListOfMedicalTest.newBuilder().setMalaria("Malaria").build());
                     System.out.println("client called server with Malaria");
+                    /*shows the client called server with Malaria*/
                         Thread.sleep(500);
                     requestObserver.onNext(ListOfMedicalTest.newBuilder().setWaterBoneDisease("WaterBoneDisease").build());
-                    System.out.println("client called server with WaterBoneDisease");   
+                    System.out.println("client called server with WaterBoneDisease"); 
+                    /*shows the client called server with WaterBoneDisease*/
                      
                     requestObserver.onCompleted();
                         Thread.sleep(3000);
