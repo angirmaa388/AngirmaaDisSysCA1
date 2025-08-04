@@ -5,6 +5,9 @@
 package com.mycompany.dissysca1;
 
 import generated.mymental.Advice;
+import generated.yourhealth.AvailableAppointmentDate;
+import java.time.LocalDate;
+import java.util.Random;
 
 /**
  *
@@ -367,7 +370,10 @@ public class GuiDemo extends javax.swing.JFrame {
      String tuberculosis = tuberculosisTextArea.getText().trim(); 
      String malaria = malariaTextArea.getText().trim(); 
      String waterBoneDisease = WaterBoneDiseaseTex.getText().trim(); 
-     result3TextArea.setText("2025-08-08");
+      String idate; /*declared here idate variable to store the random date*/
+            idate = LocalDate.now().plusDays(new Random().nextInt(10)+1).toString();
+            AvailableAppointmentDate reply = AvailableAppointmentDate.newBuilder().setBookedDate(idate).build();  
+     result3TextArea.setText(idate);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void SendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendActionPerformed
