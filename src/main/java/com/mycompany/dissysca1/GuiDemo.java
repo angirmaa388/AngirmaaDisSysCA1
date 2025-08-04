@@ -121,8 +121,7 @@ public class GuiDemo extends javax.swing.JFrame {
     }//GEN-LAST:event_issueTextFieldActionPerformed
 
     private void sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendActionPerformed
-        String issue = issueTextField.getText().trim(); 
-        Advice response = MyMentalServer.
+//        String issue = issueTextField.getText().trim(); 
         
     }//GEN-LAST:event_sendActionPerformed
 

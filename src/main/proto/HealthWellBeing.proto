@@ -1,22 +1,33 @@
-syntax = "proto3";
+syntax = "proto3"; //I used protocol buffers 3rd version
 
-option java_multiple_files = true;
-option java_package = "generated.healthwellbeing";
-option java_outer_classname = "HealthWellBeingServiceImpl";
+option java_multiple_files = true; // this will help to creating everything seperate .java file
+option java_package = "generated.healthwellbeing"; // All created java class will be in the generated
+                                                   //.healthwellbeing package in this service
+option java_outer_classname = "HealthWellBeingServiceImpl"; //this is the name of main class of them
 
-package HealthWellBeing; 
+package HealthWellBeing; //protocol file name this will avoid if there is any complict about the gRPC names
 
-service HealthWellBeing {
+service HealthWellBeing { // Here I declaring the gRPC service it's called HealthWellBeing
+                          // in this gRPC service there are two different services
 rpc MonitorTheBody(BodyScanner) returns (stream Results) {}
+// here I'm declaring that client sends only one request that about client enter the pod then it will scan body  
+  // then server will return an multiple results  
+  // client send only one request and server sends back many response which means it's server streaming gRPC
+
+
 rpc AdviceNewBorn(stream Requests) returns (stream Advices) {}
+
+// here I'm declaring that client sendsmany requests that new born baby care  
+  // then server will return an multiple advice 
+  // client sends many requests and server sends back many response which means it's Bi-Directional gRPC
 
 }
 
 message BodyScanner {
-string bodyscanner = 1;
+string bodyscanner = 1; //Client request will be string
 }
 message Results{
-string resultmessages = 1;
+string resultmessages = 1; // Server response messages will be string
 
 }
 
@@ -25,9 +36,10 @@ message Requests{
 string newborncare = 1;
 string vaccine= 2;
 string treatments = 3;
-}
+} //Client requests will be string
+
 message Advices{
 string newborncare = 1;
 string vaccine= 2;
 string treatments = 3;
-}
+} // Server response messages will be string

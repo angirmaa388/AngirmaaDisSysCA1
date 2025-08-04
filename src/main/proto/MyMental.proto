@@ -1,20 +1,24 @@
-syntax = "proto3";
+syntax = "proto3"; //I used protocol buffers 3rd version
 
-option java_multiple_files = true;
-option java_package = "generated.mymental";
-option java_outer_classname = "MyMentalServiceImpl";
+option java_multiple_files = true; // this will help to creating everything seperate .java file
+option java_package = "generated.mymental"; // All created java class will be in the generated
+                                            //.mymental package in this service
+option java_outer_classname = "MyMentalServiceImpl"; //this is the name of main class of them
 
-package MyMental; 
+package MyMental; //protocol file name this will avoid if there is any complict about the gRPC names
 
-service MyMental {
-rpc MentalAdvice( MentalIssue) returns (Advice) {}
-}
+service MyMental {  // Here I declaring the gRPC service it's called MyMental
+rpc MentalAdvice( MentalIssue) returns (Advice) {}  
+} // here I'm declaring that client sends only one request that about client's Mental issue 
+  // then server will return an Advice to the client 
+  // client send only one request and server sends back only one response which means it's Unary gRPC
+
 
 message MentalIssue{
-string mentalIssue = 1;
+string mentalIssue = 1; //Client request will be string 
 }
 message Advice{
-string advice= 1;
+string advice= 1;  // Server advice response will be string 
 }
 
 

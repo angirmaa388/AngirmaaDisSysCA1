@@ -1,23 +1,28 @@
-syntax = "proto3";
+syntax = "proto3"; //I used protocol buffers 3rd version
 
-option java_multiple_files = true;
-option java_package = "generated.yourhealth";
-option java_outer_classname = "YourHealthServiceImpl";
+option java_multiple_files = true; // this will help to creating everything seperate .java file
+option java_package = "generated.yourhealth"; // All created java class will be in the generated
+                                              //.yourhealth package in this service
+option java_outer_classname = "YourHealthServiceImpl"; //this is the name of main class of them
 
-package YourHealth; 
+package YourHealth; //protocol file name this will avoid if there is any complict about the gRPC names
 
-service YourHealth {
+service YourHealth { // Here I declaring the gRPC service it's called YourHealth
 rpc MedicalAdvice( stream ListOfMedicalTest) returns (AvailableAppointmentDate) {}
-}
+}  // here I'm declaring that client sends many request that about client request the medical test 
+  // then server will return a booked date to the client 
+  // client send many request and server sends back only one response which means it's client streaming RPC
+
+
 
 message ListOfMedicalTest{
 string aids = 1;
 string tuberculosis = 2;
 string malaria = 3;
-string waterBoneDisease = 4;
+string waterBoneDisease = 4; //Client requests will be string
 }
 message AvailableAppointmentDate{
-string bookedDate= 1;
+string bookedDate= 1; // Server booked date response will be string
 }
 
 
