@@ -8,11 +8,19 @@ public interface ResultsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Server response messages will be string
+   * </pre>
+   *
    * <code>string resultmessages = 1;</code>
    * @return The resultmessages.
    */
   java.lang.String getResultmessages();
   /**
+   * <pre>
+   * Server response messages will be string
+   * </pre>
+   *
    * <code>string resultmessages = 1;</code>
    * @return The bytes for resultmessages.
    */

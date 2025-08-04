@@ -8,11 +8,19 @@ public interface AdviceOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Server advice response will be string 
+   * </pre>
+   *
    * <code>string advice = 1;</code>
    * @return The advice.
    */
   java.lang.String getAdvice();
   /**
+   * <pre>
+   * Server advice response will be string 
+   * </pre>
+   *
    * <code>string advice = 1;</code>
    * @return The bytes for advice.
    */

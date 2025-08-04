@@ -92,6 +92,10 @@ private static final long serialVersionUID = 0L;
   public static final int BODYSCANNER_FIELD_NUMBER = 1;
   private volatile java.lang.Object bodyscanner_;
   /**
+   * <pre>
+   *Client request will be string
+   * </pre>
+   *
    * <code>string bodyscanner = 1;</code>
    * @return The bodyscanner.
    */
@@ -109,6 +113,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   *Client request will be string
+   * </pre>
+   *
    * <code>string bodyscanner = 1;</code>
    * @return The bytes for bodyscanner.
    */
@@ -431,6 +439,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object bodyscanner_ = "";
     /**
+     * <pre>
+     *Client request will be string
+     * </pre>
+     *
      * <code>string bodyscanner = 1;</code>
      * @return The bodyscanner.
      */
@@ -447,6 +459,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *Client request will be string
+     * </pre>
+     *
      * <code>string bodyscanner = 1;</code>
      * @return The bytes for bodyscanner.
      */
@@ -464,6 +480,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *Client request will be string
+     * </pre>
+     *
      * <code>string bodyscanner = 1;</code>
      * @param value The bodyscanner to set.
      * @return This builder for chaining.
@@ -479,6 +499,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *Client request will be string
+     * </pre>
+     *
      * <code>string bodyscanner = 1;</code>
      * @return This builder for chaining.
      */
@@ -489,6 +513,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *Client request will be string
+     * </pre>
+     *
      * <code>string bodyscanner = 1;</code>
      * @param value The bytes for bodyscanner to set.
      * @return This builder for chaining.

@@ -3,6 +3,9 @@ package generated.yourhealth;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * Here I declaring the gRPC service it's called YourHealth
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.52.1)",
@@ -91,6 +94,9 @@ public final class YourHealthGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called YourHealth
+   * </pre>
    */
   public static abstract class YourHealthImplBase implements io.grpc.BindableService {
 
@@ -115,6 +121,9 @@ public final class YourHealthGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called YourHealth
+   * </pre>
    */
   public static final class YourHealthStub extends io.grpc.stub.AbstractAsyncStub<YourHealthStub> {
     private YourHealthStub(
@@ -138,6 +147,9 @@ public final class YourHealthGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called YourHealth
+   * </pre>
    */
   public static final class YourHealthBlockingStub extends io.grpc.stub.AbstractBlockingStub<YourHealthBlockingStub> {
     private YourHealthBlockingStub(
@@ -153,6 +165,9 @@ public final class YourHealthGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called YourHealth
+   * </pre>
    */
   public static final class YourHealthFutureStub extends io.grpc.stub.AbstractFutureStub<YourHealthFutureStub> {
     private YourHealthFutureStub(

@@ -8,11 +8,19 @@ public interface BodyScannerOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   *Client request will be string
+   * </pre>
+   *
    * <code>string bodyscanner = 1;</code>
    * @return The bodyscanner.
    */
   java.lang.String getBodyscanner();
   /**
+   * <pre>
+   *Client request will be string
+   * </pre>
+   *
    * <code>string bodyscanner = 1;</code>
    * @return The bytes for bodyscanner.
    */

@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ListOfMedicalTest() {
+    tests_ = "";
     aids_ = "";
     tuberculosis_ = "";
     malaria_ = "";
@@ -76,6 +77,12 @@ private static final long serialVersionUID = 0L;
             waterBoneDisease_ = s;
             break;
           }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            tests_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -108,6 +115,44 @@ private static final long serialVersionUID = 0L;
     return generated.yourhealth.YourHealthServiceImpl.internal_static_YourHealth_ListOfMedicalTest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             generated.yourhealth.ListOfMedicalTest.class, generated.yourhealth.ListOfMedicalTest.Builder.class);
+  }
+
+  public static final int TESTS_FIELD_NUMBER = 5;
+  private volatile java.lang.Object tests_;
+  /**
+   * <code>string tests = 5;</code>
+   * @return The tests.
+   */
+  @java.lang.Override
+  public java.lang.String getTests() {
+    java.lang.Object ref = tests_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      tests_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string tests = 5;</code>
+   * @return The bytes for tests.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTestsBytes() {
+    java.lang.Object ref = tests_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      tests_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int AIDS_FIELD_NUMBER = 1;
@@ -227,6 +272,10 @@ private static final long serialVersionUID = 0L;
   public static final int WATERBONEDISEASE_FIELD_NUMBER = 4;
   private volatile java.lang.Object waterBoneDisease_;
   /**
+   * <pre>
+   *Client requests will be string
+   * </pre>
+   *
    * <code>string waterBoneDisease = 4;</code>
    * @return The waterBoneDisease.
    */
@@ -244,6 +293,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   *Client requests will be string
+   * </pre>
+   *
    * <code>string waterBoneDisease = 4;</code>
    * @return The bytes for waterBoneDisease.
    */
@@ -288,6 +341,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(waterBoneDisease_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, waterBoneDisease_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tests_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, tests_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -309,6 +365,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(waterBoneDisease_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, waterBoneDisease_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tests_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, tests_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -324,6 +383,8 @@ private static final long serialVersionUID = 0L;
     }
     generated.yourhealth.ListOfMedicalTest other = (generated.yourhealth.ListOfMedicalTest) obj;
 
+    if (!getTests()
+        .equals(other.getTests())) return false;
     if (!getAids()
         .equals(other.getAids())) return false;
     if (!getTuberculosis()
@@ -343,6 +404,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + TESTS_FIELD_NUMBER;
+    hash = (53 * hash) + getTests().hashCode();
     hash = (37 * hash) + AIDS_FIELD_NUMBER;
     hash = (53 * hash) + getAids().hashCode();
     hash = (37 * hash) + TUBERCULOSIS_FIELD_NUMBER;
@@ -484,6 +547,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      tests_ = "";
+
       aids_ = "";
 
       tuberculosis_ = "";
@@ -518,6 +583,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public generated.yourhealth.ListOfMedicalTest buildPartial() {
       generated.yourhealth.ListOfMedicalTest result = new generated.yourhealth.ListOfMedicalTest(this);
+      result.tests_ = tests_;
       result.aids_ = aids_;
       result.tuberculosis_ = tuberculosis_;
       result.malaria_ = malaria_;
@@ -570,6 +636,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(generated.yourhealth.ListOfMedicalTest other) {
       if (other == generated.yourhealth.ListOfMedicalTest.getDefaultInstance()) return this;
+      if (!other.getTests().isEmpty()) {
+        tests_ = other.tests_;
+        onChanged();
+      }
       if (!other.getAids().isEmpty()) {
         aids_ = other.aids_;
         onChanged();
@@ -612,6 +682,82 @@ private static final long serialVersionUID = 0L;
           mergeFrom(parsedMessage);
         }
       }
+      return this;
+    }
+
+    private java.lang.Object tests_ = "";
+    /**
+     * <code>string tests = 5;</code>
+     * @return The tests.
+     */
+    public java.lang.String getTests() {
+      java.lang.Object ref = tests_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tests_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string tests = 5;</code>
+     * @return The bytes for tests.
+     */
+    public com.google.protobuf.ByteString
+        getTestsBytes() {
+      java.lang.Object ref = tests_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tests_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string tests = 5;</code>
+     * @param value The tests to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTests(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      tests_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string tests = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTests() {
+      
+      tests_ = getDefaultInstance().getTests();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string tests = 5;</code>
+     * @param value The bytes for tests to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTestsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      tests_ = value;
+      onChanged();
       return this;
     }
 
@@ -845,6 +991,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object waterBoneDisease_ = "";
     /**
+     * <pre>
+     *Client requests will be string
+     * </pre>
+     *
      * <code>string waterBoneDisease = 4;</code>
      * @return The waterBoneDisease.
      */
@@ -861,6 +1011,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *Client requests will be string
+     * </pre>
+     *
      * <code>string waterBoneDisease = 4;</code>
      * @return The bytes for waterBoneDisease.
      */
@@ -878,6 +1032,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *Client requests will be string
+     * </pre>
+     *
      * <code>string waterBoneDisease = 4;</code>
      * @param value The waterBoneDisease to set.
      * @return This builder for chaining.
@@ -893,6 +1051,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *Client requests will be string
+     * </pre>
+     *
      * <code>string waterBoneDisease = 4;</code>
      * @return This builder for chaining.
      */
@@ -903,6 +1065,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *Client requests will be string
+     * </pre>
+     *
      * <code>string waterBoneDisease = 4;</code>
      * @param value The bytes for waterBoneDisease to set.
      * @return This builder for chaining.

@@ -33,15 +33,15 @@ public final class YourHealthServiceImpl {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020YourHealth.proto\022\nYourHealth\"b\n\021ListOf" +
-      "MedicalTest\022\014\n\004aids\030\001 \001(\t\022\024\n\014tuberculosi" +
-      "s\030\002 \001(\t\022\017\n\007malaria\030\003 \001(\t\022\030\n\020waterBoneDis" +
-      "ease\030\004 \001(\t\".\n\030AvailableAppointmentDate\022\022" +
-      "\n\nbookedDate\030\001 \001(\t2f\n\nYourHealth\022X\n\rMedi" +
-      "calAdvice\022\035.YourHealth.ListOfMedicalTest" +
-      "\032$.YourHealth.AvailableAppointmentDate\"\000" +
-      "(\001B/\n\024generated.yourhealthB\025YourHealthSe" +
-      "rviceImplP\001b\006proto3"
+      "\n\020YourHealth.proto\022\nYourHealth\"q\n\021ListOf" +
+      "MedicalTest\022\r\n\005tests\030\005 \001(\t\022\014\n\004aids\030\001 \001(\t" +
+      "\022\024\n\014tuberculosis\030\002 \001(\t\022\017\n\007malaria\030\003 \001(\t\022" +
+      "\030\n\020waterBoneDisease\030\004 \001(\t\".\n\030AvailableAp" +
+      "pointmentDate\022\022\n\nbookedDate\030\001 \001(\t2f\n\nYou" +
+      "rHealth\022X\n\rMedicalAdvice\022\035.YourHealth.Li" +
+      "stOfMedicalTest\032$.YourHealth.AvailableAp" +
+      "pointmentDate\"\000(\001B/\n\024generated.yourhealt" +
+      "hB\025YourHealthServiceImplP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -52,7 +52,7 @@ public final class YourHealthServiceImpl {
     internal_static_YourHealth_ListOfMedicalTest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_YourHealth_ListOfMedicalTest_descriptor,
-        new java.lang.String[] { "Aids", "Tuberculosis", "Malaria", "WaterBoneDisease", });
+        new java.lang.String[] { "Tests", "Aids", "Tuberculosis", "Malaria", "WaterBoneDisease", });
     internal_static_YourHealth_AvailableAppointmentDate_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_YourHealth_AvailableAppointmentDate_fieldAccessorTable = new

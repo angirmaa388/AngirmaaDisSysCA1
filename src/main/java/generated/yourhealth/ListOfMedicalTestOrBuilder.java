@@ -8,6 +8,18 @@ public interface ListOfMedicalTestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <code>string tests = 5;</code>
+   * @return The tests.
+   */
+  java.lang.String getTests();
+  /**
+   * <code>string tests = 5;</code>
+   * @return The bytes for tests.
+   */
+  com.google.protobuf.ByteString
+      getTestsBytes();
+
+  /**
    * <code>string aids = 1;</code>
    * @return The aids.
    */
@@ -44,11 +56,19 @@ public interface ListOfMedicalTestOrBuilder extends
       getMalariaBytes();
 
   /**
+   * <pre>
+   *Client requests will be string
+   * </pre>
+   *
    * <code>string waterBoneDisease = 4;</code>
    * @return The waterBoneDisease.
    */
   java.lang.String getWaterBoneDisease();
   /**
+   * <pre>
+   *Client requests will be string
+   * </pre>
+   *
    * <code>string waterBoneDisease = 4;</code>
    * @return The bytes for waterBoneDisease.
    */

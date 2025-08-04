@@ -3,6 +3,9 @@ package generated.mymental;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * Here I declaring the gRPC service it's called MyMental
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.52.1)",
@@ -91,6 +94,9 @@ public final class MyMentalGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called MyMental
+   * </pre>
    */
   public static abstract class MyMentalImplBase implements io.grpc.BindableService {
 
@@ -115,6 +121,9 @@ public final class MyMentalGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called MyMental
+   * </pre>
    */
   public static final class MyMentalStub extends io.grpc.stub.AbstractAsyncStub<MyMentalStub> {
     private MyMentalStub(
@@ -138,6 +147,9 @@ public final class MyMentalGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called MyMental
+   * </pre>
    */
   public static final class MyMentalBlockingStub extends io.grpc.stub.AbstractBlockingStub<MyMentalBlockingStub> {
     private MyMentalBlockingStub(
@@ -160,6 +172,9 @@ public final class MyMentalGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called MyMental
+   * </pre>
    */
   public static final class MyMentalFutureStub extends io.grpc.stub.AbstractFutureStub<MyMentalFutureStub> {
     private MyMentalFutureStub(

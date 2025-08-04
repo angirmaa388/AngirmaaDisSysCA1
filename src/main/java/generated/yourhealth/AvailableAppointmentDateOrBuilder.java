@@ -8,11 +8,19 @@ public interface AvailableAppointmentDateOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Server booked date response will be string
+   * </pre>
+   *
    * <code>string bookedDate = 1;</code>
    * @return The bookedDate.
    */
   java.lang.String getBookedDate();
   /**
+   * <pre>
+   * Server booked date response will be string
+   * </pre>
+   *
    * <code>string bookedDate = 1;</code>
    * @return The bytes for bookedDate.
    */

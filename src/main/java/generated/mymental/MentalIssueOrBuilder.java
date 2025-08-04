@@ -8,11 +8,19 @@ public interface MentalIssueOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   *Client request will be string 
+   * </pre>
+   *
    * <code>string mentalIssue = 1;</code>
    * @return The mentalIssue.
    */
   java.lang.String getMentalIssue();
   /**
+   * <pre>
+   *Client request will be string 
+   * </pre>
+   *
    * <code>string mentalIssue = 1;</code>
    * @return The bytes for mentalIssue.
    */

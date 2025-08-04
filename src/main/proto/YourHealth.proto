@@ -16,6 +16,7 @@ rpc MedicalAdvice( stream ListOfMedicalTest) returns (AvailableAppointmentDate) 
 
 
 message ListOfMedicalTest{
+string tests = 5;
 string aids = 1;
 string tuberculosis = 2;
 string malaria = 3;

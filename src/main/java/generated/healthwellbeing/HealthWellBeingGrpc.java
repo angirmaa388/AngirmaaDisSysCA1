@@ -3,6 +3,9 @@ package generated.healthwellbeing;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * Here I declaring the gRPC service it's called HealthWellBeing
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.52.1)",
@@ -122,10 +125,16 @@ public final class HealthWellBeingGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called HealthWellBeing
+   * </pre>
    */
   public static abstract class HealthWellBeingImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     * in this gRPC service there are two different services
+     * </pre>
      */
     public void monitorTheBody(generated.healthwellbeing.BodyScanner request,
         io.grpc.stub.StreamObserver<generated.healthwellbeing.Results> responseObserver) {
@@ -160,6 +169,9 @@ public final class HealthWellBeingGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called HealthWellBeing
+   * </pre>
    */
   public static final class HealthWellBeingStub extends io.grpc.stub.AbstractAsyncStub<HealthWellBeingStub> {
     private HealthWellBeingStub(
@@ -174,6 +186,9 @@ public final class HealthWellBeingGrpc {
     }
 
     /**
+     * <pre>
+     * in this gRPC service there are two different services
+     * </pre>
      */
     public void monitorTheBody(generated.healthwellbeing.BodyScanner request,
         io.grpc.stub.StreamObserver<generated.healthwellbeing.Results> responseObserver) {
@@ -191,6 +206,9 @@ public final class HealthWellBeingGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called HealthWellBeing
+   * </pre>
    */
   public static final class HealthWellBeingBlockingStub extends io.grpc.stub.AbstractBlockingStub<HealthWellBeingBlockingStub> {
     private HealthWellBeingBlockingStub(
@@ -205,6 +223,9 @@ public final class HealthWellBeingGrpc {
     }
 
     /**
+     * <pre>
+     * in this gRPC service there are two different services
+     * </pre>
      */
     public java.util.Iterator<generated.healthwellbeing.Results> monitorTheBody(
         generated.healthwellbeing.BodyScanner request) {
@@ -214,6 +235,9 @@ public final class HealthWellBeingGrpc {
   }
 
   /**
+   * <pre>
+   * Here I declaring the gRPC service it's called HealthWellBeing
+   * </pre>
    */
   public static final class HealthWellBeingFutureStub extends io.grpc.stub.AbstractFutureStub<HealthWellBeingFutureStub> {
     private HealthWellBeingFutureStub(

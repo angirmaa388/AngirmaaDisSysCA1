@@ -92,6 +92,10 @@ private static final long serialVersionUID = 0L;
   public static final int RESULTMESSAGES_FIELD_NUMBER = 1;
   private volatile java.lang.Object resultmessages_;
   /**
+   * <pre>
+   * Server response messages will be string
+   * </pre>
+   *
    * <code>string resultmessages = 1;</code>
    * @return The resultmessages.
    */
@@ -109,6 +113,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Server response messages will be string
+   * </pre>
+   *
    * <code>string resultmessages = 1;</code>
    * @return The bytes for resultmessages.
    */
@@ -431,6 +439,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object resultmessages_ = "";
     /**
+     * <pre>
+     * Server response messages will be string
+     * </pre>
+     *
      * <code>string resultmessages = 1;</code>
      * @return The resultmessages.
      */
@@ -447,6 +459,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Server response messages will be string
+     * </pre>
+     *
      * <code>string resultmessages = 1;</code>
      * @return The bytes for resultmessages.
      */
@@ -464,6 +480,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Server response messages will be string
+     * </pre>
+     *
      * <code>string resultmessages = 1;</code>
      * @param value The resultmessages to set.
      * @return This builder for chaining.
@@ -479,6 +499,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Server response messages will be string
+     * </pre>
+     *
      * <code>string resultmessages = 1;</code>
      * @return This builder for chaining.
      */
@@ -489,6 +513,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Server response messages will be string
+     * </pre>
+     *
      * <code>string resultmessages = 1;</code>
      * @param value The bytes for resultmessages to set.
      * @return This builder for chaining.

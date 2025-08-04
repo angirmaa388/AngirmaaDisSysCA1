@@ -92,6 +92,10 @@ private static final long serialVersionUID = 0L;
   public static final int ADVICE_FIELD_NUMBER = 1;
   private volatile java.lang.Object advice_;
   /**
+   * <pre>
+   * Server advice response will be string 
+   * </pre>
+   *
    * <code>string advice = 1;</code>
    * @return The advice.
    */
@@ -109,6 +113,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Server advice response will be string 
+   * </pre>
+   *
    * <code>string advice = 1;</code>
    * @return The bytes for advice.
    */
@@ -431,6 +439,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object advice_ = "";
     /**
+     * <pre>
+     * Server advice response will be string 
+     * </pre>
+     *
      * <code>string advice = 1;</code>
      * @return The advice.
      */
@@ -447,6 +459,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Server advice response will be string 
+     * </pre>
+     *
      * <code>string advice = 1;</code>
      * @return The bytes for advice.
      */
@@ -464,6 +480,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Server advice response will be string 
+     * </pre>
+     *
      * <code>string advice = 1;</code>
      * @param value The advice to set.
      * @return This builder for chaining.
@@ -479,6 +499,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Server advice response will be string 
+     * </pre>
+     *
      * <code>string advice = 1;</code>
      * @return This builder for chaining.
      */
@@ -489,6 +513,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Server advice response will be string 
+     * </pre>
+     *
      * <code>string advice = 1;</code>
      * @param value The bytes for advice to set.
      * @return This builder for chaining.

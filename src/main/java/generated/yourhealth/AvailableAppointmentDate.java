@@ -92,6 +92,10 @@ private static final long serialVersionUID = 0L;
   public static final int BOOKEDDATE_FIELD_NUMBER = 1;
   private volatile java.lang.Object bookedDate_;
   /**
+   * <pre>
+   * Server booked date response will be string
+   * </pre>
+   *
    * <code>string bookedDate = 1;</code>
    * @return The bookedDate.
    */
@@ -109,6 +113,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Server booked date response will be string
+   * </pre>
+   *
    * <code>string bookedDate = 1;</code>
    * @return The bytes for bookedDate.
    */
@@ -431,6 +439,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object bookedDate_ = "";
     /**
+     * <pre>
+     * Server booked date response will be string
+     * </pre>
+     *
      * <code>string bookedDate = 1;</code>
      * @return The bookedDate.
      */
@@ -447,6 +459,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Server booked date response will be string
+     * </pre>
+     *
      * <code>string bookedDate = 1;</code>
      * @return The bytes for bookedDate.
      */
@@ -464,6 +480,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Server booked date response will be string
+     * </pre>
+     *
      * <code>string bookedDate = 1;</code>
      * @param value The bookedDate to set.
      * @return This builder for chaining.
@@ -479,6 +499,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Server booked date response will be string
+     * </pre>
+     *
      * <code>string bookedDate = 1;</code>
      * @return This builder for chaining.
      */
@@ -489,6 +513,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Server booked date response will be string
+     * </pre>
+     *
      * <code>string bookedDate = 1;</code>
      * @param value The bytes for bookedDate to set.
      * @return This builder for chaining.
