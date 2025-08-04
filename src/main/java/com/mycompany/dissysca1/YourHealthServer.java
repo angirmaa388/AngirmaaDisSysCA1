@@ -62,7 +62,7 @@ public class YourHealthServer extends YourHealthImplBase{
         }/*when the server starts, if there is any errorr IOException or InterruptedException, it will tell */
         
     }
-    public StreamObserver<ListOfMedicalTest> MedicalAdvice(StreamObserver<AvailableAppointmentDate> responseObserver) {
+    public StreamObserver<ListOfMedicalTest> medicalAdvice(StreamObserver<AvailableAppointmentDate> responseObserver) {
     /* Here server is ready to get the clients requests */
    
         return new StreamObserver<ListOfMedicalTest>() {
